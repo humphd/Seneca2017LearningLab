@@ -288,7 +288,8 @@ to do the following:
 * Enable Travis CI integration with your GitHub account for this repo in your [profile page](https://travis-ci.org/profile)
 * Create a `.travis.yml` file for a [`node` project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/).  It will automatically run your `npm test` command.  You can specify `"node"` as your node.js version to use the latest stable version of node.
 * Push a new commit to your repo's `master` branch to start a build on Travis. You can check
-your builds at https://travis-ci/profile/<git-username>
+your builds at https://travis-ci/profile/<git-username>/<repo-name>.  For example, here is my repo's
+Travis build page: https://travis-ci.org/humphd/Seneca2017LearningLab
 
 ## Add a Travis CI Build Badge to your README
 
@@ -296,4 +297,9 @@ You can have Travis CI automatically indicate whether your current code is passi
 by adding a badge to your `README.md` file.  Instructions on how to do it are here:
 
 https://docs.travis-ci.com/user/status-images/
+
+Here is the badge for my repo's Travis Build:
+
+[![Build Status](https://travis-ci.org/humphd/Seneca2017LearningLab.svg?branch=master)](https://travis-ci.org/humphd/Seneca2017LearningLab)
+
 
