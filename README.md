@@ -1,5 +1,16 @@
 # Seneca 2017 Learning Lab
 
+## Introduction
+
+In this lab series we will explore a number of open source and GitHub tooling,
+automation, and worflow options.  You will learn about how to build node.js modules,
+how to use tools like linters, code formatters, how to use unit tests, how to do automated
+checks on your commits and pull requests, etc.
+
+We will expand on this repo in the coming weeks, so it's important for you to finish
+each week's tasks before the next lab.  If you get stuck, feel free to help one another.
+This is not a test, but a learning exercise.
+
 ## Create a Repo
 
 This repo will form the basis of our exploration of various open source tooling.
@@ -81,7 +92,7 @@ Is this ok? (yes)
 Confirm that your `package.json` is correct, and edit it if not:
 
 ```bash
-cat package.json
+$ cat package.json
 {
   "name": "lab7",
   "version": "1.0.0",
@@ -226,11 +237,11 @@ You now have a new file `.eslintrc.json` which has the rules you want `eslint` t
 Your `package.json` will also have new `devDependency` entries:
 
 ```json
-  "devDependencies": {
-    "eslint": "^3.17.1",
-    "eslint-config-airbnb-base": "^11.1.1",
-    "eslint-plugin-import": "^2.2.0"
-  }
+"devDependencies": {
+  "eslint": "^3.17.1",
+  "eslint-config-airbnb-base": "^11.1.1",
+  "eslint-plugin-import": "^2.2.0"
+}
 ```
 
 Try running `eslint` on your code:
@@ -251,8 +262,6 @@ $ ./node_modules/.bin/eslint seneca.js
 
 You can read about the various rules and warnings in the `eslint docs`, for example:
 http://eslint.org/docs/rules/space-before-function-paren or http://eslint.org/docs/rules/no-unused-vars
-
-Fix any errors and warnings you have
 
 ## Automate our Lint Checking
 
@@ -291,6 +300,8 @@ to do the following:
 your builds at https://travis-ci/profile/<git-username>/<repo-name>.  For example, here is my repo's
 Travis build page: https://travis-ci.org/humphd/Seneca2017LearningLab
 
+Get your build to pass by fixing any errors or warnings that you have.
+
 ## Add a Travis CI Build Badge to your README
 
 You can have Travis CI automatically indicate whether your current code is passing or failing
@@ -302,4 +313,4 @@ Here is the badge for my repo's Travis Build:
 
 [![Build Status](https://travis-ci.org/humphd/Seneca2017LearningLab.svg?branch=master)](https://travis-ci.org/humphd/Seneca2017LearningLab)
 
-
+My build is failing because I have not fixed the eslint errors and warnings for my code.
