@@ -345,3 +345,11 @@ Here is the badge for my repo's Travis Build:
 [![Build Status](https://travis-ci.org/humphd/Seneca2017LearningLab.svg?branch=master)](https://travis-ci.org/humphd/Seneca2017LearningLab)
 
 My build is failing because I have not fixed the eslint errors and warnings for my code.
+
+## [Optional] Other Things to Try
+
+* Switch to a more complete [build system or task runner (gulp, grunt, etc.](https://www.slant.co/topics/1276/~node-js-build-systems-task-runners))
+* Integrate `eslint` into your editor so that it automatically reads your `.eslintrc.json`
+and suggests warnings and errors as you type your code
+* See if there are any existing `npm` modules that could help you write your code above,
+for example, email address modules, and use them.
