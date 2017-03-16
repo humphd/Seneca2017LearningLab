@@ -144,6 +144,35 @@ Write an implementation of `isValidEmail` and `formatSenecaEmail`.  You are
 only expected to validate and work with strings, you don't need to deal with
 sending or validating email addresses in general.
 
+## [Optional] Extra Challenge: Command Line Tool that uses seneca.js
+
+If you want an extra challenge, it would be nice if there was an easy way to test
+your code from the command line.
+
+You can easily write cross-platform command line tools in node.js.  See if you can
+write a simple command line tool that works like so:
+
+```bash
+$ seneca --help
+
+ Usage: seneca [options]
+
+  Options:
+
+  -h, --help             output usage information
+  -v, --verify <email>   verifys the email address given as a Seneca email
+  -f, --format <name>    formats the name given as a Seneca email
+
+$ seneca -v student@myseneca.ca
+valid
+$ seneca -v student@gmail.com
+invalid
+$ seneca -f student
+student@myseneca.ca
+```
+
+A great tutorial on how to achieve something like this can be found at https://developer.atlassian.com/blog/2015/11/scripting-with-node/.
+
 ## Add ESLint to avoid common patterns and bugs
 
 Linting your code is a great way to avoid various common problems.  We'll use
