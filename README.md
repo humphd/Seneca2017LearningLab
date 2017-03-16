@@ -263,7 +263,7 @@ You now have a new file `.eslintrc.json` which has the rules you want `eslint` t
 }
 ```
 
-Your `package.json` will also have new `devDependency` entries:
+Your `package.json` will also have new `devDependencies` entries:
 
 ```json
 "devDependencies": {
@@ -273,7 +273,7 @@ Your `package.json` will also have new `devDependency` entries:
 }
 ```
 
-Try running `eslint` on your code:
+Try running `eslint` on your code manually:
 
 ```bash
 $ ./node_modules/.bin/eslint seneca.js
@@ -292,6 +292,9 @@ $ ./node_modules/.bin/eslint seneca.js
 You can read about the various rules and warnings in the `eslint docs`, for example:
 http://eslint.org/docs/rules/space-before-function-paren or http://eslint.org/docs/rules/no-unused-vars
 
+Feel free to experiment with different `.eslintrc.json` options, or try other style guides.
+There's nothing sacred about Airbnb's, and you can even write your own to match your own style.
+
 ## Automate our Lint Checking
 
 Since we'll want to check our code every time we make changes, it's nice to automate the
@@ -309,14 +312,13 @@ debug info):
 }
 ```
 
-NOTE: the extra `; exit 0` is add to deal with the case of their being no errors
-and wanting the return code to be `0` vs. npm logs, see https://github.com/eslint/eslint/issues/2409
-
 ## Use TravisCI for Continuous Integration
 
 Now that we have the basics of our code infrastructure set up, we can use
-a free continuous integration service named [Travis CI](https://travis-ci.org/) to help us run these
-checks every time we do a new commit or someone creates a pull request.
+a continuous integration service named [Travis CI](https://travis-ci.org/) to help us run these
+checks every time we do a new commit or someone creates a pull request.  Travis CI is
+free to use for open source projects.  It will automatically clone our repo, checkout our branch
+and run any tests we specify.
 
 Follow the [Getting started](https://docs.travis-ci.com/user/getting-started/) guide and the
 [Building a Node.js project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/) docs
@@ -324,7 +326,7 @@ to do the following:
 
 * [Sign in to Travis CI](https://docs.travis-ci.com/user/getting-started/) with your GitHub account
 * Enable Travis CI integration with your GitHub account for this repo in your [profile page](https://travis-ci.org/profile)
-* Create a `.travis.yml` file for a [`node` project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/).  It will automatically run your `npm test` command.  You can specify `"node"` as your node.js version to use the latest stable version of node.
+* Create a `.travis.yml` file for a [`node` project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/).  It will automatically run your `npm test` command.  You can specify `"node"` as your node.js version to use the latest stable version of node.  You can look at how I did my [`.travis.yml`](.travis.yml) file as an example.
 * Push a new commit to your repo's `master` branch to start a build on Travis. You can check
 your builds at https://travis-ci/profile/<git-username>/<repo-name>.  For example, here is my repo's
 Travis build page: https://travis-ci.org/humphd/Seneca2017LearningLab
