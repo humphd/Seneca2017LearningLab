@@ -4,7 +4,8 @@
   "description": "Learning Lab",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/eslint *.js ; exit 0"
+    "lint": "node_modules/.bin/eslint *.js",
+    "test": "npm run -s lint"
   },
   "repository": {
     "type": "git",

@@ -252,18 +252,23 @@ $ ./node_modules/.bin/eslint seneca.js
 You can read about the various rules and warnings in the `eslint docs`, for example:
 http://eslint.org/docs/rules/space-before-function-paren or http://eslint.org/docs/rules/no-unused-vars
 
+Fix any errors and warnings you have
+
 ## Automate our Lint Checking
 
 Since we'll want to check our code every time we make changes, it's nice to automate the
 call to `eslint` and make a script that we can run.  We can add scripts to our `package.json`
 file, which are then runnable via `npm`.
 
-Modify the `scripts` section of your `package.json` to run `eslint`:
+Modify the `scripts` section of your `package.json` to add a `lint` task, and update the
+`test` task to run this task, passing `-s` for silent mode (keep `npm` from spitting out
+debug info):
 
 ```json
 "scripts": {
-    "test": "node_modules/.bin/eslint *.js ; exit 0"
-},
+  "lint": "node_modules/.bin/eslint *.js",
+  "test": "npm run -s lint"
+}
 ```
 
 NOTE: the extra `; exit 0` is add to deal with the case of their being no errors
@@ -281,7 +286,14 @@ to do the following:
 
 * [Sign in to Travis CI](https://docs.travis-ci.com/user/getting-started/) with your GitHub account
 * Enable Travis CI integration with your GitHub account for this repo in your [profile page](https://travis-ci.org/profile)
-* Create a `.travis.yml` file for a [`node` project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/).  It will automatically run your `npm test` command
+* Create a `.travis.yml` file for a [`node` project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/).  It will automatically run your `npm test` command.  You can specify `"node"` as your node.js version to use the latest stable version of node.
 * Push a new commit to your repo's `master` branch to start a build on Travis. You can check
 your builds at https://travis-ci/profile/<git-username>
+
+## Add a Travis CI Build Badge to your README
+
+You can have Travis CI automatically indicate whether your current code is passing or failing
+by adding a badge to your `README.md` file.  Instructions on how to do it are here:
+
+https://docs.travis-ci.com/user/status-images/
 
