@@ -40,8 +40,8 @@ do it now.
 
 Next use [npm](https://docs.npmjs.com/) (NOTE: `npm` gets installed along with node.js)
 to initialize your `package.json` file.
-**FYI:** Be aware that according to [this information](https://github.com/npm/npm/issues/14257), if you use Git Bash, you will not be able to confirm the "Is this ok? (yes)" question at the end. 
-In this case(if you use Windows), just for this step, I would advise you to use `cmd.exe` to run `npm init` command, as it seems that CMD doesn't have the issue mentioned above.
+
+**FYI:** Be aware that according to [this information](https://github.com/npm/npm/issues/14257), if you use Git Bash, you will not be able to confirm the "Is this ok? (yes)" question at the end. In this case(if you use Windows), just for this step, I would advise you to use `cmd.exe` to run `npm init` command, as it seems that CMD doesn't have the issue mentioned above.
 
 ```bash
 $ npm init
