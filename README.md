@@ -39,7 +39,10 @@ You should already have [node.js](https://nodejs.org/) installed.  If you don't,
 do it now.
 
 Next use [npm](https://docs.npmjs.com/) (NOTE: `npm` gets installed along with node.js)
-to initialize your `package.json` file:
+to initialize your `package.json` file.
+
+**FYI:** Be aware that according to [this information](https://github.com/npm/npm/issues/14257), if you use Git Bash, you will not be able to confirm the "Is this ok? (yes)" question at the end. 
+In this case(if you use Windows), just for this step, I would advice you to use cmd.exe, as it seems that CMD doesn't have the issue mentioned above.
 
 ```bash
 $ npm init
