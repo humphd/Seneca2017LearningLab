@@ -2,7 +2,9 @@
 
 ## Introduction
 
-In this lab series we will explore a number of open source and GitHub tooling,
+This is part one of a multi-part lab series.  [Part two is now available as well](README-part2.md).
+
+In this series we will explore a number of open source and GitHub tooling,
 automation, and worflow options.  You will learn about how to build node.js modules,
 how to use tools like linters, code formatters, how to use unit tests, how to do automated
 checks on your commits and pull requests, etc.
