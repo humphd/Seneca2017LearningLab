@@ -242,9 +242,110 @@ TravisCI is automatically going to run my `test` script when I commit code (or d
 so this should automatically mean my tests will run on every commit, whether I remember to
 do them locally or not.
 
-Try running your tests locally, then commit and push to see them run in TravisCI
+Try running your tests locally, then commit and push to see them run in TravisCI.  Here is
+[my build running on TravisCI for the changes described above](https://travis-ci.org/humphd/Seneca2017LearningLab/builds/214296336).
+
+## Organizing Test Suites
+
+Our `seneca` module currently has two public functions: `isValidEmail()` and `formatSenecaEmail()`.
+We are going to want to write a bunch of tests for each, and it might be nice to organize them
+into two groups.
+
+Let's create two test suites, one for each function, and add a few more tests:
+
+```js
+// First require (e.g., load) our seneca.js module
+var seneca = require('./seneca');
+
+/**
+ * Tests for seneca.isValidEmail()
+ */
+describe('seneca.isValidEmail()', function() {
+
+  test('returns true for simple myseneca address', function() {
+    var simpleEmail = 'someone@myseneca.ca';
+    expect(seneca.isValidEmail(simpleEmail)).toBe(true);
+  });
+
+  test('returns false for a non-myseneca address', function() {
+    var gmailAddress = 'someone@gmail.com';
+    expect(seneca.isValidEmail(gmailAddress)).toBe(false);
+  });
+
+});
+
+/**
+ * Tests for seneca.formatSenecaEmail()
+ */
+describe('seneca.formatSenecaEmail()', function() {
+
+  test('adds @myseneca.ca to the end of name', function() {
+    var name = "mshaw";
+    expect(seneca.formatSenecaEmail(name)).toBe('mshaw@myseneca.ca');
+  });
+
+});
+```
+
+Here we've used [`describe()`](https://facebook.github.io/jest/docs/api.html#describename-fn) to
+group common tests into test suites.  It makes the output of our test run a bit easier to follow,
+and helps us see how each group is doing:
+
+```bash
+$ npm test
+
+> lab7@1.0.0 test /Users/dave/Sites/repos/Seneca2017LearningLab
+> npm run -s lint && npm run jest
 
 
+> lab7@1.0.0 jest /Users/dave/Sites/repos/Seneca2017LearningLab
+> jest
+
+ PASS  ./seneca.test.js
+  seneca.isValidEmail()
+    ✓ returns true for simple myseneca address (3ms)
+    ✓ returns false for a non-myseneca address (1ms)
+  seneca.formatSenecaEmail()
+    ✓ adds @myseneca.ca to the end of name (1ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        1.001s
+Ran all test suites.
+```
+
+## Write More Tests
+
+To finish this lab, I want you to spend some time thinking of all the ways someone
+might use and misuse your `seneca` module and its functions.  Imagine you are giving this
+code to someone who is going to use it in a real application.  What might they need?
+What might they do?  What problems might they hit?
+
+For every situtation you can imagine, you should add a test.  Each test should be small
+and focus on a single thing.  If you think of something that has multiple parts, add more
+than one test.  Whenever you add tests, try to also fix your code so they pass. See if you
+can fix your code for the new cases you come up with such that you don't break your existing
+tests!  It can be a challenge.
+
+Here are some cases to consider, which will need tests and fixes in your code:
+
+### `isValidEmail()`
+
+* user passes something other than a `String` to your function (e.g., `Number`, `Boolean`, ...)
+* user passes a variable which is actually `null` (they thought it was a `String`, but it's not)
+* email address contains leading whitespace, for example `'    mshaw@myseneca.ca'`
+* email address is for a professor vs. student `'david.humphrey@senecacollege.ca'` (this is valid)
+* email address uses old style Seneca address, `'david.humphrey@senecac.on.ca'` (this is also valid)
+
+### `formatSenecaEmail()`
+
+* name contains whitespace
+* name is null
+
+There are so many ways that people might use your code, and so many situations where there might
+be bugs in their program that end up passing your code garbage data.  See if you can bullet-proof
+your code so you know it works well in all cases.
 
 
 
