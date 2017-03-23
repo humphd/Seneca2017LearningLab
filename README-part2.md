@@ -66,7 +66,7 @@ useful and complete tests is an art.  It takes time, and practice will help you.
 To begin, let's write a single test for our `seneca` module and the `isValidEmail()`
 function.  A unit test should test one thing, and one thing only.  Instead of trying
 to write a single test that will test everything at all once, we'll write many small tests,
-each which tests a single aspect of the code.
+each of which tests a single aspect of the code.
 
 Let's create a test file for the `seneca.js` module named `seneca.test.js` with the following
 contents:
@@ -89,7 +89,8 @@ show you all the ways you can use it to test for things.
 ## Running a test
 
 It's often a good idea to write tests *before* you write your code.  This is called
-Test Driven Development (TDD), and helps to make sure that your code evolves in ways that
+[Test Driven Development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development), and
+helps to make sure that your code evolves in ways that
 are expected, documented, and safe.  It's not always necessary, appropriate, or possible to
 do this, but it's something to keep in mind.  The code we're writing is perfect for TDD,
 since the functions are very easy to test (something goes in, something comes out).
@@ -182,11 +183,11 @@ Time:        1.003s
 Ran all test suites.
 ```
 
-We're still failing this test.  This time, instead of getting `undefined` instead of `true`
+We're still failing this test.  This time, instead of getting `undefined`
 we got an array with one string element: `@myseneca.ca`.  This is happening becuase we're
 returning all the matches it found for our regex.
 
-Let's fix this so we return the proper thing, using the `RegExp.prototype.test` method:
+Let's fix this so we return the proper thing, using the [`RegExp.prototype.test`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) method:
 
 ```js
 /**
@@ -340,12 +341,16 @@ Here are some cases to consider, which will need tests and fixes in your code:
 
 ### `formatSenecaEmail()`
 
-* name contains whitespace
-* name is null
+* name contains spaces, tabs, or other control characters
+* name is `null`
 
 There are so many ways that people might use your code, and so many situations where there might
 be bugs in their program that end up passing your code garbage data.  See if you can bullet-proof
 your code so you know it works well in all cases.
+
+Use the [docs for `expect`](https://facebook.github.io/jest/docs/expect.html) and the rest
+of the [Jest API](https://facebook.github.io/jest/docs/api.html) to help you write good tests
+and understand how to do various things.
 
 
 
