@@ -122,8 +122,6 @@ Make sure you `git add` and `git commit` this file so it will exist when we `git
 
 ## Deploy to Heroku
 
-https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
-
 ### Step 1 - Create your account
 
 First, you need to [create a free account on Heroku](https://signup.heroku.com/signup/dc). You
@@ -329,7 +327,7 @@ $ heroku logs --tail
 ### Step 4 - Update your Code and Re-Deploy the App
 
 If you make a mistake in your code, fix a bug, or add a feature, you'll need to make changes.
-Re-depoloying your app with updated code is as simple as doing another `git push`.
+Re-deploying your app with updated code is as simple as doing another `git push`.
 
 Try adding a new route to your `server.js` file that we can use to validate that the server
 is working.  Often such a route is called a "health check," since it returns info about whether
@@ -363,6 +361,12 @@ $ git push heroku master
 ```
 
 Now you should be able to visit your app running on Heroku and hit the `/healthcheck` route.
+
+### Step 5 - Update your GitHub Repo Too!
+
+So far we've been pushing only to Heroku, but we should push our updated code back to GitHub
+as well.  When you get everything working locally and on Heroku, push to your `master` branch
+on GitHub so your code gets included in your repo.
 
 ## Exploring Heroku
 
