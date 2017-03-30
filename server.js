@@ -6,6 +6,9 @@ var seneca = require('./seneca');
 // Create an instance of express
 var app = express();
 
+// Use port 3000 unless one is set in the env
+var port = process.env.PORT || 3000;
+
 // Define some HTTP routes (e.g., URLs) users can access on our server
 
 // GET http://localhost:3000/
@@ -38,6 +41,6 @@ app.get('/format/:name', function (req, res) {
 });
 
 // Start our web server on port 3000
-app.listen(3000, function () {
-  console.log('Server started on http://localhost:3000');
+app.listen(port, function () {
+  console.log('Server started on http://localhost:' + port);
 });
