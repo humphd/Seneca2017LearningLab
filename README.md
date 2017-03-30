@@ -2,7 +2,8 @@
 
 ## Introduction
 
-This is part one of a multi-part lab series.  [Part two is now available as well](README-part2.md).
+This is part one of a multi-part lab series. [Part two](README-part2.md) and [part three](README-part3.md)
+are also available.
 
 In this series we will explore a number of open source and GitHub tooling,
 automation, and worflow options.  You will learn about how to build node.js modules,
