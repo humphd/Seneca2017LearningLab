@@ -195,7 +195,7 @@ make sure you have done `git add` and `git commit` for the `server.js`, `package
 and `Procfile` files you created above, or this won't work.
 
 ```bash
-$ git git push heroku master
+$ git push heroku master
 Counting objects: 72, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (68/68), done.
